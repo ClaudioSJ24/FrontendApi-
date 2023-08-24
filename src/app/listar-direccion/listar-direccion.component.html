@@ -1,0 +1,45 @@
+<div class="container">
+    <hr>
+    <h1 class="text-center">Listado de Direcciones</h1>
+
+    <a [routerLink]="['/direcciones/alta']" class="btn btn-xs btn-primary">Alta</a>
+    
+    <table class="table bordered" width="100" cellSpacing="0">
+
+        <thead>
+            <th>ID</th>
+            <th>Calle</th>
+            <th>Numero</th>
+            <th>Colonia</th>
+            <th>Ciudad</th>
+            <th>Estado</th>
+            <th>CP</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let d of direcciones">
+                
+                <td>{{d.idD}}</td>
+                <td>{{d.calle}}</td>
+                <td>{{d.numero}}</td>
+                <td>{{d.colonia}}</td>
+                <td>{{d.ciudad}}</td>
+                <td>{{d.estado}}</td>
+                <td>{{d.cp}}</td>
+                <td>
+                    <a [routerLink]="['/direcciones/detalle', d.idD]" class="btn btn-xs btn-success">Detalle</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/direcciones/editar', d.idD]" class="btn btn-xs btn-warning">Editar</a>
+                </td>
+                <td>
+                    <button (click)="eliminar(d.idD)" class="btn btn-xs btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
